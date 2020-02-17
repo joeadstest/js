@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS 練習</title>
+    <style>
+        .box {
+            color: white;
+            background-color: gray;
+            height: 100px;
+            width: 100px;
+            text-align: center;
+            line-height: 100px;
+            transition: 1s;
+
+        }
+
+        .box:hover{
+            border-radius: 75%;
+        }
+
+        .Spin {
+            transform: rotate(360deg);
+            border-radius: 50%;
+        }
+
+        /*.green{
+            background-color: green;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box" id="block"></div>
+    <button id="input_age">請輸入年齡</button>
+    <button id="input_name">請輸入管理員姓名</button>
+    <button id="input_score">請輸入成績</button>
+    <button id="num_add_1">點擊+1</button>
+    <button id="Spin">旋轉</button>
+
+    <br><br>
+    <hr>
+    <h2>修改顏色</h2>
+    <button id="input_color_num">請輸入顏色號碼</button>
+    <button id="block_blue">藍色</button>
+    <button id="block_red">紅色</button>
+    <button id="block_green">綠色</button>
+    <button id="block_purple">紫色</button>
+    <button id="remove">還原</button>
+    
+    <script>
+        document.getElementById("block").textContent = "測試";
+
+        //console.log();
+        //confirm("Y or N");
+        //prompt("input");
+
+
+
+        //////////////////年齡輸入////////////////////
+        function click_event() {
+            let your_age = prompt("請輸入年齡");
+            console.log("您今年" + your_age + "歲");
+            alert("您今年" + your_age + "歲");
+        }
+        document.getElementById("input_age").addEventListener("click", function () {
+            click_event();
+        });
+        //////////////////年齡輸入////////////////////
+
+        //////////////////輸入成績////////////////////
+        function input_score() {
+            let score = prompt("請輸入成績");
+
+            if (score >= 60) {
+                console.log("合格");
+            }
+            else {
+                console.log("不合格");
+            }
+        }
+        document.getElementById("input_score").addEventListener("click", function () {
+            input_score();
+        });
+        //////////////////輸入成績////////////////////
+
+        //////////////////點擊+1////////////////////
+        num = 0;
+        function num_add_1() {
+            num = num + 1;
+            console.log(num);
+        }
+        document.getElementById("num_add_1").addEventListener("click", function () {
+            num_add_1();
+        });
+        //////////////////點擊+1////////////////////
+
+        
+        //////////////////修改Block顏色////////////////////
+        function change_blue_block() {
+            document.getElementById("block").style.backgroundColor = "blue";
+        }
+        function change_red_block() {
+            document.getElementById("block").style.backgroundColor = "red";
+        }
+        function change_green_block() {
+            document.getElementById("block").style.backgroundColor = "green";
+        }
+        function change_purple_block() {
+            document.getElementById("block").style.backgroundColor = "purple";
+        }
+        document.getElementById("block_blue").addEventListener("click", function () {
+            change_blue_block();
+        });
+        document.getElementById("block_red").addEventListener("click", function () {
+            change_red_block();
+        });
+        document.getElementById("block_green").addEventListener("click", function () {
+            change_green_block();
+        });
+        document.getElementById("block_purple").addEventListener("click", function () {
+            change_purple_block();
+        });
+        //////////////////修改Block顏色////////////////////
+
+        //////////////////旋轉Block////////////////////
+        function Spin() {
+            document.getElementById("block").classList.toggle("Spin");
+        }
+        document.getElementById("Spin").addEventListener("click", function () {
+            Spin();
+        });
+        //////////////////旋轉Block////////////////////
+
+
+
+        //////////////////管理員輸入////////////////////
+        function user() {
+            let user = prompt("請輸入姓名");
+
+            if (user == "joe") {
+                console.log(user + "管理員，歡迎回來");
+            }
+            else {
+                console.log(user + "訪客，歡迎光臨");
+            }
+        }
+        document.getElementById("input_name").addEventListener("click", function () {
+            user();
+        });
+        //////////////////管理員輸入////////////////////
+
+
+        let light_num = Math.floor(Math.random() * 3) + 1; //floor：取最小整數
+        console.log(light_num);
+        switch (light_num) {
+            case 1:
+                console.log("紅燈")
+                break;
+            case 2:
+                console.log("綠燈")
+                break;
+            case 3:
+                console.log("黃燈")
+                break;
+        }
+
+
+
+/////////////////////輸入顏色數字[1藍、2紅、3綠、4紫]////////////////////////
+        function color_num(){
+            let color_num = Number(prompt("請輸入顏色數字[1藍、2紅、3綠、4紫]"));
+            console.log(color_num);
+            switch (color_num) {
+                case 1:
+                    document.getElementById("block").style.backgroundColor = "blue";
+                    break;
+                case 2:
+                document.getElementById("block").style.backgroundColor = "red";
+                    break;
+                case 3:
+                document.getElementById("block").style.backgroundColor = "green";
+                    break;
+                case 4:
+                document.getElementById("block").style.backgroundColor = "purple";
+                    break;
+            }
+        }
+
+        document.getElementById("input_color_num").addEventListener("click", function () {
+            color_num();
+        });
+/////////////////////輸入顏色數字[1藍、2紅、3綠]////////////////////////
+
+
+
+
+
+    </script>
+</body>
+
+</html>
